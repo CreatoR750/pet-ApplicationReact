@@ -1,0 +1,83 @@
+.wrapper {
+    margin: 0 auto;
+    width: 1000px;
+    text-align: center;
+}
+
+.animals {
+    list-style-type: none;
+    padding: 0 0 1rem 0;
+    width: 350px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.animals a {
+    text-decoration: none;
+}
+
+.animals li {
+    cursor: pointer;
+    position: relative;
+    background-color: #eeeeee;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 4px;
+}
+
+.animals li:hover {
+    background-color: #e6e6e6;
+}
+
+.toggle-btn {
+    font-size: 20px;
+    background-color: #6b57e0;
+    border-radius: 4px;
+    padding: 4px;
+    border: none;
+    height: 3em;
+    color: #eee;
+    margin-bottom: 0.5em;
+}
+
+.toggle-btn:hover {
+    background-color: rgb(79, 62, 172);
+}
+
+.details {
+    font-size: 20px;
+    background-color: rgb(86, 68, 189);
+    margin: 0 auto;
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #eee;
+}
+
+.back-btn {
+    font-size: 20px;
+    background-color: rgb(101, 82, 206);
+    border-radius: 4px;
+    padding: 4px 12px 4px 12px;
+    border: none;
+    height: 3em;
+    color: #eee;
+    margin: 0.5em 0 0.5em 0;
+}
+
+.back-btn:hover {
+    background-color: rgb(79, 62, 172);
+}
+
+.header {
+    width: 350px;
+    margin: 0 auto;
+    padding-top: 0.2em;
+}
+
+.details-wrapper {
+    width: 350px;
+    margin: 0 auto;
+}
