@@ -4,24 +4,26 @@ import Animal from "./Animal";
 import "../App.css";
 import { themes } from "../ThemeContext";
 import { ThemeContext } from "../ThemeContext";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypeSelector";
+import { useActions } from "../hooks/useActions";
 
 const AnimalList: FC = () => {
-    const [animals, setAnimals] = useState<IAnimal[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
     const [isHidden, setIsHidden] = useState<boolean>(false);
     const context = useContext(ThemeContext);
     const container = context.darkTheme ? themes.dark : themes.light;
+
+    const { animals, loading } = useTypedSelector((state) => state.animals);
+    const { fetchAnimals, fetchFilteredAnimals } = useActions();
 
     useEffect(() => {
         getAnimals();
     }, []);
 
     const getAnimals = async () => {
-        const response = await fetch("http://localhost:4000/animals");
-        const data = await response.json();
-        setAnimals(data);
-        setLoading(false);
         setIsHidden(false);
+        fetchAnimals();
     };
 
     const displayAnimals = useCallback(() => {
@@ -29,8 +31,7 @@ const AnimalList: FC = () => {
     }, [animals]);
 
     const getFilteredAnimals = async () => {
-        const filteredAnimals = animals.filter((animal: IAnimal) => animal.type !== "Кошка" && animal.type !== "Кот");
-        setAnimals(filteredAnimals);
+        fetchFilteredAnimals();
         setIsHidden(true);
     };
 
@@ -41,9 +42,14 @@ const AnimalList: FC = () => {
             {loading ? (
                 <div>loading...</div>
             ) : (
-                <ul className="animals" style={{ backgroundColor: container.background }}>
-                    {displayAnimals()}
-                </ul>
+                <div>
+                    <ul className="animals" style={{ backgroundColor: container.background }}>
+                        {displayAnimals()}
+                    </ul>
+                    <NavLink to={`/animal/add`}>
+                        <button className="toggle-btn">Добавить</button>
+                    </NavLink>
+                </div>
             )}
 
             {isHidden ? (

@@ -1,10 +1,10 @@
 export interface IAnimal {
-    id: number;
-    name: string;
-    type: string;
-    color: string;
-    age: number;
-    gender: string;
+    id?: number;
+    name?: string;
+    type?: string;
+    color?: string;
+    age?: number;
+    gender?: string;
 }
 
 export class Animal implements IAnimal {
@@ -14,14 +14,7 @@ export class Animal implements IAnimal {
     public color: string;
     public age: number;
     public gender: string;
-    constructor(
-        id: number,
-        name: string,
-        type: string,
-        color: string,
-        age: number,
-        gender: string
-    ) {
+    constructor(id: number, name: string, type: string, color: string, age: number, gender: string) {
         this.id = id;
         this.name = name;
         this.type = type;

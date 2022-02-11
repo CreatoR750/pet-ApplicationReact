@@ -6,6 +6,7 @@ import { useState, useMemo } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { themes } from "./ThemeContext";
 import Header from "./components/Header";
+import AddAnimal from "./components/AddAnimal";
 const App = () => {
     const [darkTheme, setDarkTheme] = useState<boolean>(false);
     const context = useMemo(
@@ -24,6 +25,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<AnimalList />} />
                         <Route path="/animal/:id" element={<AnimalDetails />} />
+                        <Route path="/animal/add" element={<AddAnimal />} />
                     </Routes>
                 </ThemeContext.Provider>
             </BrowserRouter>
